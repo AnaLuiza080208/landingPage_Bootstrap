@@ -3,8 +3,9 @@ body {
   line-height: 1.6;
   margin: 0;
   padding: 0;
-  background-color: #3b3b3b;
+  background-color: #1a1a1a; 
   color: #d0d0d0;
+  max-width: 100%;
 }
 
 @font-face {
@@ -129,7 +130,7 @@ section:hover {
   color: #55ff55; 
 }
 .text-neon {
-  color: #55ff55; /* Código do verde neon clássico */
+  color: #55ff55;
  
 }
 
@@ -332,14 +333,14 @@ header img.logo {
   font-family: "Minecraft";
   src: url("https://assets.codepen.io/1538474/Minecraft.ttf") format("truetype");
 }
-
+/* 
 body {
   background-color: #1a1a1a;
   color: #d0d0d0;
   font-family: Arial, sans-serif;
   padding: 20px;
   text-align: center;
-}
+} */
 
 .botao-surpresa {
   display: inline-flex;
