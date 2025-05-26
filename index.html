@@ -368,28 +368,74 @@
   <p>&copy; 2025 Projeto Minecraft. Todos os direitos reservados a Mojang Studios.</p>
 
   <!DOCTYPE html>
-<html lang="pt-BR">
-<head>
-  <meta charset="UTF-8">
-  <title>Popover Simples</title>
-  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
-</head>
-<body class="text-center p-5">
+  <html lang="pt-BR">
 
-  <button type="button" class="btn btn-success" 
-          data-bs-toggle="popover" 
-          data-bs-title="Dica Secreta!" 
-          data-bs-content="Você descobriu um easter egg!">
-    Mostrar Surpresa
-  </button>
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Surpresa Minecraft</title>
 
-  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
-  <script>
-    document.addEventListener('DOMContentLoaded', () => {
-      const popoverTriggerList = [].slice.call(document.querySelectorAll('[data-bs-toggle="popover"]'));
-      popoverTriggerList.forEach(el => new bootstrap.Popover(el));
-    });
-  </script>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+  </head>
 
-</body>
-</html>
+  <body>
+    <h1 style="font-family: 'Minecraft'; color: #55ff55; text-shadow: 2px 2px 0 #000;">Minecraft Surpresa</h1>
+
+    <button id="btn-surpresa" class="botao-surpresa" data-bs-toggle="popover" data-bs-custom-class="minecraft-popover"
+      data-bs-title="Dica Secreta!" data-bs-content="Você descobriu um easter egg!">
+      Surpresa
+    </button>
+
+    <div id="mensagem-surpresa" class="mensagem-surpresa">
+      <h3 class="titulo-erro">ALERTA DO SISTEMA</h3>
+      <div class="mensagem-principal">
+        <p>Detectamos uma avaliação suspeita:</p>
+        <p class="destaque-avaliacao">NOTA A</p>
+        <p>Classificação acima dos padrões esperados</p>
+      </div>
+      <div class="mensagem-secundaria">
+        <p>Você concedeu: <span>A</span></p>
+        <p>Quando nosso desempenho merece: <span class="nota-merecida">A+++</span></p>
+      </div>
+      <p>(Mas aceitaremos humildemente este A)</p>
+      <button id="fechar-surpresa" class="fechar-btn">Fechar</button>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+
+    <script>
+      document.addEventListener('DOMContentLoaded', function () {
+        const btnSurpresa = document.getElementById('btn-surpresa');
+        const mensagemSurpresa = document.getElementById('mensagem-surpresa');
+        const btnFechar = document.getElementById('fechar-surpresa');
+
+        const popover = new bootstrap.Popover(btnSurpresa, {
+          trigger: 'click',
+          html: true,
+          placement: 'bottom'
+        });
+
+
+        btnSurpresa.addEventListener('click', function () {
+          mensagemSurpresa.style.display = 'block';
+
+          setTimeout(() => {
+            popover.hide();
+          }, 1500);
+        });
+
+        btnFechar.addEventListener('click', function () {
+          mensagemSurpresa.style.display = 'none';
+        });
+      });
+    </script>
+  </body>
+
+  </html>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.6/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-j1CDi7MgGQ12Z7Qab0qlWQ/Qqz24Gc6BM0thvEMVjHnfYGF0rmFCozFSxQBxwHKO"
+    crossorigin="anonymous"></script>
+  </body>
+
+  </html>
